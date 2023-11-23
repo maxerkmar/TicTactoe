@@ -1,7 +1,5 @@
 package com.example.tictactoe;
 
-import java.util.Random;
-
 public class TicTacToeModel {
     private char[][] buttons;
     private char currentPlayer;
@@ -10,12 +8,18 @@ public class TicTacToeModel {
         buttons = new char[3][3];
         currentPlayer = 'X';
     }
+    public char[][] getButtons() {return buttons;}
+
     public char getCurrentPlayer(){
         return currentPlayer;
     }
+
+    public void setButtons(char[][] buttons) {this.buttons = buttons;}
+
     public void switchPLayer(){
         currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
+
     public boolean makeMove(int row, int col) {
         if (buttons[row][col] == '\u0000') {
             buttons[row][col] = currentPlayer;
