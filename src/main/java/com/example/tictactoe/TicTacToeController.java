@@ -35,6 +35,7 @@ public class TicTacToeController {
                 clickedButton.setText(String.valueOf(model.getCurrentPlayer()));
                 model.switchPLayer();
                 computerMove();
+
             }
         }
         checkResult();
@@ -72,13 +73,10 @@ public class TicTacToeController {
     }
 
     private void checkResult(){
-        if (model.checkForWinner()) announceWinner();
-        else if (model.checkForTie()) announceTie();
+        if (model.checkForWinner())announceWinner();
+        else if (model.checkForTie())announceTie();
 
-        if(model.checkForWinner() || model.checkForTie()) {
-            clearBoard();
-            model = new TicTacToeModel();
-        }
+        if(model.checkForWinner() || model.checkForTie()) clearBoard();
     }
 
     private void clearBoard() {
@@ -86,6 +84,8 @@ public class TicTacToeController {
             Button button = (Button) node;
             button.setText("");
         }
+        model = new TicTacToeModel();
+        model.setCurrentPlayer('X');
     }
 
     private void announceWinner() {

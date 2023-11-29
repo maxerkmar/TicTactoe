@@ -4,6 +4,7 @@ public class TicTacToeModel {
     private char[][] buttons;
     private char currentPlayer;
 
+
     public TicTacToeModel(){
         buttons = new char[3][3];
         currentPlayer = 'X';
@@ -15,6 +16,10 @@ public class TicTacToeModel {
     }
 
     public void setButtons(char[][] buttons) {this.buttons = buttons;}
+
+    public void setCurrentPlayer(char currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
 
     public void switchPLayer(){
         currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
